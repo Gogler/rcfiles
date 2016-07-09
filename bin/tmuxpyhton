@@ -1,0 +1,26 @@
+#!/bin/bash
+
+SESSION=`basename $PWD`
+
+tmux -2 new-session -d -s $SESSION 'zsh'
+
+tmux rename-window -t $SESSION:1 MAIN
+
+tmux new-window -t $SESSION -a -n code -c ~/workbox/py 'nvim ~/workbox/py/pygame/tiles.py'
+tmux split-window -v -c ~/workbox/py
+tmux select-pane -t 1
+tmux resize-pane -y 15
+tmux select-pane -t 0
+
+tmux new-window -t $SESSION -a -n tests 'bash'
+tmux split-window -h 'top'
+tmux select-pane -t 0
+tmux resize-pane -R 20
+tmux split-window -v 'python'
+
+tmux new-window -t $SESSION -a -n logs 'htop'
+tmux split-window -v 'watch -n1 free -h'
+tmux split-window -v 'watch -n1 df -h'
+
+tmux select-window -t $SESSION:2
+tmux -2 attach -t $SESSION

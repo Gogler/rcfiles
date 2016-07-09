@@ -1,0 +1,26 @@
+## Write your default config options here!
+
+#ass=true
+#embeddedfonts=true
+## Set font.
+#font=/home/adi/.fonts/djV.ttf
+
+## Set font encoding.
+#subfont-encoding=unicode
+
+## Set subtitle file encoding.
+#unicode=yes
+#utf8=yes
+
+subcp='windows-1250'
+# # Set font encoding.
+subfont=/usr/share/fonts/TTF/DejaVuSans.ttf
+subfont-encoding=unicode
+#
+# # Set subtitle file encoding.
+unicode=yes
+utf8=yes
+subfont-text-scale = 2.5
+vo=xv
+ao=alsa
+subpos=95
