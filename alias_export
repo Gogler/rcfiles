@@ -9,8 +9,10 @@ alias shutdown="sudo shutdown"
 
 alias pacman="sudo pacman"
 alias aura="sudo aura"
+alias orphans="pacman -Qtdq" # packages not required by any other
+alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 #--------------------------- EXPORTS
-export POWERLINE_ROOT="/home/adi/.local/lib/python3.5/site-packages/powerline"
+export POWERLINE_ROOT="~/.local/lib/python3.5/site-packages/powerline"
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.5/site-packages/:~/.local/lib/python3.5/site-packages
 export XDG_CONFIG_HOME=~/.config/
 
@@ -25,3 +27,11 @@ man() {
                         LESS_TERMCAP_us=$'\E[04;38;5;146m' \
                         man "$@"
 }
+#--------------------------- FUNCTIONS
+# top 15 most used commands
+topfifteen() {
+	history | awk '{if ($4 == "sudo") {print $5} else {print $4}}' | \
+		awk 'BEGIN {FS ="|"} {print $1}' \
+		| grep -v topfifteen | sort | uniq -c | sort -rn | head -15
+}
+

@@ -179,7 +179,7 @@ bar {
     }
     position    top
     workspace_buttons   yes
-    status_command python  /home/adi/.config/i3status/statusLeft.py
+    status_command python  ~/.config/i3status/statusLeft.py
     tray_output primary
 }
 
@@ -192,7 +192,7 @@ bar {
     }
     position    top
     workspace_buttons   yes
-    status_command python  /home/adi/.config/i3status/statusRight.py
+    status_command python  ~/.config/i3status/statusRight.py
 
     tray_output none
 }

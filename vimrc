@@ -1,4 +1,4 @@
-call plug#begin('/home/adi/.config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " IDE like plugins
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/vim-easy-align'

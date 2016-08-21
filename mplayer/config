@@ -3,7 +3,7 @@
 #ass=true
 #embeddedfonts=true
 ## Set font.
-#font=/home/adi/.fonts/djV.ttf
+#font=~/.fonts/djV.ttf
 
 ## Set font encoding.
 #subfont-encoding=unicode
