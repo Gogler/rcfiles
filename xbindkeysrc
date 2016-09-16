@@ -1,0 +1,23 @@
+"/usr/bin/amixer -q sset Master 2-"
+m:0x0 + c:122
+XF86AudioLowerVolume
+
+"/usr/bin/amixer -q sset Master 2+"
+m:0x0 + c:123
+XF86AudioRaiseVolume
+
+"/usr/bin/amixer sset Master toggle"
+m:0x0 + c:121
+
+"/home/adi/.config/i3status/mpdControll.sh"
+m:0x0 + c:172
+
+#"/bin/mpc stop"
+#m:0x0 + c:173
+
+"/bin/mpc prev"
+m:0x0 + c:173
+
+"/bin/mpc next"
+m:0x0 + c:171
+XF86AudioNext

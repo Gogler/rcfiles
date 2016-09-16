@@ -13,5 +13,5 @@ export PS1="\[\033[38;5;11m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\h:\[$(tput sgr
 unset PROMPT_COMMAND
 
 if [ -f "~/.alias_export" ]; then
-    . ~/alias
+    . ~/.alias_export
 fi

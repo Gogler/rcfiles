@@ -51,14 +51,25 @@ install_repo()
         git clone ${repos}
     done
     popd
+
+    ln -s ~/.local/powerline/scripts/* ~/bin/
 }
 
 install_optional()
 {
-    if [ -d "~/.config" ]; then
-        cp -r $PWD/i3 ~/.config/
-        cp -r $PWD/i3status ~/.config/
+    if [ -d ~/.config ]; then
+        ln -s $PWD/i3 ~/.config/
+        ln -s $PWD/i3status ~/.config/
+    else
+        echo "~/.config dir does not exist"
     fi
+}
+
+install_pkg()
+{
+    for pkg in $(cat pacman_list.txt); do
+        pacman -S $pkg
+    done;
 }
 
 main()
@@ -73,10 +84,13 @@ main()
     'zshrc'
     'bin'
     'mplayer'
+    'fehbg'
+    'xbindkeysrc'
     )
 
-    install_rcfiles $RC_FILES
-    install_repo
+    #install_rcfiles $RC_FILES
+    #install_repo
+    install_optional
 }
 
 main
