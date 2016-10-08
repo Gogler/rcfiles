@@ -39,3 +39,4 @@ BASE16_SHELL=~/.local/base16-shell/scripts/base16-monokai.sh
 export QTCHOOSER_RUNTOOL=qtconfig
 export QT_SELECT=5
 alias vim='nvim'
+bindkey -e

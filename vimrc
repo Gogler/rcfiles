@@ -53,7 +53,6 @@ let g:jedi#force_py_version = 2
 
 
 "============ SOLARIZED
-syntax on
 "let g:solarized_termcolors=256
 "set t_Co=256
 "let g:solarized_termtrans=0
@@ -159,6 +158,7 @@ if has("wildmenu")
     set wildignore+=*~,*.swp,*.tmp
 endif
 
+syntax on
 set ff=unix             " Unix-style endings
 "set lazyredraw          " redraw only when need to.
 set showmatch           " highlight matching [{()}]
@@ -195,6 +195,8 @@ set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " fold based on indent level
+
+set mouse=
 
 set nobackup       "no backup files
 set nowritebackup  "only in case you don't want a backup file while editing

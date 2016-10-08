@@ -13,12 +13,14 @@ alias orphans="pacman -Qtdq" # packages not required by any other
 alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 alias mplayer='mplayer -vsync'
 alias pdf='zathura'
+alias rawvim="vim -u ~/.rawvim"
 
 # --------------------------- EXPORTS
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.5/site-packages/:~/.local/lib/python3.5/site-packages
 export XDG_CONFIG_HOME=~/.config/
 export POWERLINE_ROOT=~/.local/powerline
 export PATH=~/bin:$PATH
+export EDITOR=nvim
 
 # --------------------------- COLORED MAN PAGES
 man() {

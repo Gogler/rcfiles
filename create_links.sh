@@ -63,6 +63,13 @@ install_optional()
     else
         echo "~/.config dir does not exist"
     fi
+
+    if [ -d ~/bin ]; then
+        echo "~/bin dir already exist!"
+    else
+        mkdir ~/bin
+        ln -s $PWD/bin/* ~/bin/
+    fi
 }
 
 install_pkg()
@@ -82,14 +89,14 @@ main()
     'vimrc'
     'Xresources'
     'zshrc'
-    'bin'
     'mplayer'
     'fehbg'
     'xbindkeysrc'
+    'rawvim'
     )
 
-    #install_rcfiles $RC_FILES
-    #install_repo
+    install_rcfiles $RC_FILES
+    install_repo
     install_optional
 }
 
