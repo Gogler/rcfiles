@@ -3,7 +3,7 @@
 alias ls='ls --color=auto'
 alias ls="ls --color"
 alias grep="grep --color"
-alias ll="ls -l"
+alias ll="ls -lh"
 alias reboot="sudo reboot"
 alias shutdown="sudo shutdown"
 

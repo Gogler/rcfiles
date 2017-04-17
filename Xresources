@@ -1,15 +1,15 @@
 xterm*termName: xterm-256color
-#xterm*faceName: DejaVu Sans Mono:size=10:antialias=true
+!xterm*faceName: DejaVu Sans Mono:size=10:antialias=true
 xterm*faceName: Hack-Bold:size=11:antialias=true
+xterm*metaSendsEscape: true
 xterm*loginShell: true
 xterm*saveLines: 4096
 xterm*charClass: 33:48,35:48,37:48,43:48,45-47:48,64:48,95:48,126:48
 xterm*locale: true
 XTerm*scaleHeight: 1.01
 
-#XTerm*reverseVideo: on
+!XTerm*reverseVideo: on
 xterm*borderwidht: 0
-XTerm*metaSendsEscape: true
 XTerm*selectToClipboard: true
 
 ! Base16 Monokai

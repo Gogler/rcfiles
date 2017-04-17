@@ -263,6 +263,9 @@ map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
 nmap <Down> :m .+1<CR>==
 nmap <Up> :m .-2<CR>==
 
+" disable Ex visual mode
+map Q <nop>
+
 "=================================
 "============ Execute current file
 "=================================

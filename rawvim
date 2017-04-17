@@ -175,12 +175,12 @@ let expanded_part = fnameescape(expand(part))
     " If there is no plugisn use SuperTab
 function! SuperTab()
     if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
-    return "\<Tab>"
+        return "\<Tab>"
     else
-    return "\<C-n>"
+        return "\<C-n>"
     endif
     endfunction
-    imap <Tab> <C-R>=SuperTab()<CR>
+imap <Tab> <C-R>=SuperTab()<CR>
 
     " Higlight the max witdh of text
     if exists('+colorcolumn')
