@@ -16,9 +16,9 @@ alias pdf='zathura'
 alias rawvim="vim -u ~/.rawvim"
 
 # --------------------------- EXPORTS
-export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.5/site-packages/:~/.local/lib/python3.5/site-packages
+export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.5/site-packages/:~/.local/lib/python3.5/site-packages:/usr/lib/python3.6/site-packages/:~/.local/lib/python3.6/site-packages
 export XDG_CONFIG_HOME=~/.config/
-export POWERLINE_ROOT=~/.local/powerline
+export POWERLINE_ROOT=~/.local/lib/python3.6/site-packages/powerline
 export PATH=~/bin:$PATH
 export EDITOR=nvim
 

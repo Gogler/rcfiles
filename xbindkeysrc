@@ -9,7 +9,7 @@ XF86AudioRaiseVolume
 "/usr/bin/amixer sset Master toggle"
 m:0x0 + c:121
 
-"/home/adi/.config/i3status/mpdControll.sh"
+"~/.config/i3status/mpdControll.sh"
 m:0x0 + c:172
 
 #"/bin/mpc stop"

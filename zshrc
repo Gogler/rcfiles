@@ -25,9 +25,9 @@ fi
 
 #--------------------------- Powerline Statuslien
 powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-source $POWERLINE_ROOT/powerline/bindings/zsh/powerline.zsh
+#POWERLINE_BASH_CONTINUATION=1
+#POWERLINE_BASH_SELECT=1
+. $POWERLINE_ROOT/bindings/zsh/powerline.zsh
 alias cdpowerline="cd $POWERLINE_ROOT"
 
 #--------------------------- Base16 Shell

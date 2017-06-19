@@ -10,7 +10,7 @@ XTerm*scaleHeight: 1.01
 
 !XTerm*reverseVideo: on
 xterm*borderwidht: 0
-XTerm*selectToClipboard: true
+xterm*selectToClipboard: true
 
 ! Base16 Monokai
 ! Scheme: Wimer Hazenberg (http://www.monokai.nl)

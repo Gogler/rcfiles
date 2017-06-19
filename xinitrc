@@ -38,6 +38,7 @@ xrandr --output DVI-I-1 --rotate right &
 sh ~/.fehbg &
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd &
+xrandr --output HDMI-0 --brightness 0.95 &
 exec i3
 #twm &
 #xclock -geometry 50x50-1+1 &

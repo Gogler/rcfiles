@@ -1,2 +1,2 @@
 #!/bin/sh
-feh  --bg-scale '/home/adi/.config/i3/wallLeft.jpg' '/home/adi/.config/i3/wallRight.jpg' 
+feh  --bg-scale '/home/adi/.config/i3/wallLeft.jpg' '/home/adi/.config/i3/wallRight.jpg'

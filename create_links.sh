@@ -33,7 +33,6 @@ install_rcfiles()
 install_repo()
 {
     REPOS=(
-    "https://github.com/powerline/powerline"
     "https://github.com/powerline/fonts"
     "https://github.com/chriskempson/base16-shell"
     )
@@ -51,8 +50,6 @@ install_repo()
         git clone ${repos}
     done
     popd
-
-    ln -s ~/.local/powerline/scripts/* ~/bin/
 }
 
 install_optional()
@@ -68,8 +65,8 @@ install_optional()
         echo "~/bin dir already exist!"
     else
         mkdir ~/bin
-        ln -s $PWD/bin/* ~/bin/
     fi
+    ln -s $PWD/bin/* ~/bin/
 }
 
 install_pkg()
