@@ -34,7 +34,7 @@ fi
 
 xbindkeys &
 setxkbmap -layout pl -option caps:swapescape &
-xrandr --output DVI-I-1 --rotate right &
+#xrandr --output DVI-I-1 --rotate right &
 sh ~/.fehbg &
 # MPD daemon start (if no other user instance exists)
 [ ! -s ~/.config/mpd/pid ] && mpd &

@@ -67,6 +67,13 @@ install_optional()
         mkdir ~/bin
     fi
     ln -s $PWD/bin/* ~/bin/
+
+    if hash pip3 2>/dev/null; then
+        pip3 install powerline-status --user
+    else
+        echo "No pip3 installation found, trying to install pip"
+    fi
+
 }
 
 install_pkg()
@@ -98,4 +105,3 @@ main()
 }
 
 main
-

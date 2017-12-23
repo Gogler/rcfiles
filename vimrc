@@ -112,7 +112,7 @@ nnoremap <F2> :YcmCompleter GoTo<CR>
 set omnifunc=syntaxcomplete#Complete
 let g:ycm_min_num_of_chars_for_completion = 1
 let g:ycm_auto_trigger = 1
-"let g:ycm_server_python_interpreter = '/usr/bin/python'
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
 
 "============ TMUX LINE
 "let g:tmuxline_powerline_separators = 0
@@ -329,7 +329,7 @@ function! SuperTab()
         return "\<C-n>"
     endif
 endfunction
-"imap <Tab> <C-R>=SuperTab()<CR>
+imap <Tab> <C-R>=SuperTab()<CR>
 
 " Higlight the max witdh of text
 "if exists('+colorcolumn')
