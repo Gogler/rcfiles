@@ -13,109 +13,59 @@ endif
 
 colorscheme desert
 syntax on
-set ff=unix             " Unix-style endings
-"set lazyredraw          " redraw only when need to.
-set showmatch           " highlight matching [{()}]
-set hlsearch
-set ruler
-set cmdheight=2
-set laststatus=2
-set showcmd
-set nu
-set rnu
 
-set cursorline          " highlight current line
-"set cursorcolumn          " highlight current line
+set ff=unix             " Unix-style endings
+set lazyredraw          " redraw only when need to.
+set cmdheight=2 laststatus=2 showcmd
+set nu rnu
 
 filetype indent on      " load filetype-specific indent files
-set shiftwidth=4
-set tabstop=4
-set softtabstop=4
-
-"set autoindent
-set expandtab
-set smartindent
-set cindent
+set shiftwidth=4 tabstop=4 softtabstop=4
+set expandtab smartindent cindent
 
 set novisualbell        " don't blink
 
 " search settings
-set incsearch           " search as characters are entered
-set hlsearch            " highlight matches
-set ignorecase " do case insensitive search...
-set smartcase " ...unless capital letters are used
+set showmatch hlsearch incsearch ignorecase smartcase
 
 set foldenable          " enable folding
 set foldlevelstart=10   " open most folds by default
 set foldnestmax=10      " 10 nested fold max
 set foldmethod=indent   " fold based on indent level
 
-set mouse=
+set nobackup nowritebackup noswapfile
 
-set nobackup       "no backup files
-set nowritebackup  "only in case you don't want a backup file while editing
-set noswapfile     "no swap files
-
-"autocmd BufWritePre * :%s/\s\+$//e  "Automatically rmoving all trailing whitespace when :w command
+autocmd BufWritePre * :%s/\s\+$//e  "Automatically rmoving all trailing whitespace when :w command
 
 " KEYBINDS
 " Force saving files that require root permission
 cnoremap w!! w !sudo tee > /dev/null %
-
 " select all
 map <Leader>a ggVG
-
-" jk is escape
-imap jk <esc>
-
-" select all
-map <Leader>a ggVG
-
 " space open/closes folds
 nnoremap <space> za
-
-"map <C-T> :tabnew<CR>
-
 " <Leader>Enter enter new line in normal mode
 nnoremap <silent> <Leader><CR> :put=''<CR>
-
 " tab navigation
 map <s-l> :tabnext<cr>
 map <s-h> :tabprevious<cr>
-
-" save as sudo
-cmap w!! w  !sudo tee > /dev/null %
-
 " clear serach with <Leader>h
 noremap <silent><Leader>h :nohls<CR>
-
-"noremap <left> :bp<CR>
-"noremap <right> :bn<CR>
+noremap <left> :bp<CR>
+noremap <right> :bn<CR>
+nmap <Down> :m .+1<CR>==
+nmap <Up> :m .-2<CR>==
 " list all open buffers with Leader b
 nmap <leader>b :ls<CR>:buffer<Space>
-
-nnoremap <leader>p p
-nnoremap <leader>P P
-
-nnoremap p p'[v']=
-nnoremap P P'[v']=
-
 " Open a Quickfix window for the last searchk
 nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
-
 " use <Leader>] to jump to tag in a vertical split
 nnoremap <silent> <Leader>] :let word=expand("<cword>")<CR>:sp<CR>:wincmd w<cr>:exec("tag ". word)<cr>
-
 " use <Leader>] to jump to tag in a tab split
 nnoremap <silent><Leader><C-]> :tabnew %<CR>g<C-]>
-
 " use <Leader>gf to go to file in a vertical split
 nnoremap <silent> <Leader>gf :botright wincmd f<CR>
-
 map <F6> :execute "vimgrep /" . expand("<cword>") . "/j **" <Bar> cw<CR>
-
-"nmap <Down> :m .+1<CR>==
-"nmap <Up> :m .-2<CR>==
 
 "=================================
 "============ Execute current file
@@ -158,46 +108,39 @@ let expanded_part = fnameescape(expand(part))
     endfunction
 
 
-    "=================================
-    "============ autocmd and functions
-    "=================================
-    " CLEAN commadn clean all trailing whatespaces
-    command! CLEAN retab | %s/ \+$//
+"=================================
+"============ autocmd and functions
+"=================================
+" CLEAN commadn clean all trailing whatespaces
+command! CLEAN retab | %s/ \+$//
 
-    " absolute line numbers in insert mode, relative otherwise for easy movement
-    autocmd InsertEnter * :set nornu
-    autocmd InsertLeave * :set rnu
+" absolute line numbers in insert mode, relative otherwise for easy movement
+autocmd InsertEnter * :set nornu
+autocmd InsertLeave * :set rnu
 
-    " Highlight any trailing whitespaces
-    highlight WhitespaceEOL ctermbg=Red guibg=Red
-    match WhitespaceEOL /\s\+$/
+" Highlight any trailing whitespaces
+highlight WhitespaceEOL ctermbg=Red guibg=Red
+match WhitespaceEOL /\s\+$/
 
-    " If there is no plugisn use SuperTab
+" If there is no plugisn use SuperTab
 function! SuperTab()
     if (strpart(getline('.'),col('.')-2,1)=~'^\W\?$')
-        return "\<Tab>"
+    return "\<Tab>"
     else
-        return "\<C-n>"
+    return "\<C-n>"
     endif
     endfunction
-imap <Tab> <C-R>=SuperTab()<CR>
+    imap <Tab> <C-R>=SuperTab()<CR>
 
-    " Higlight the max witdh of text
-    if exists('+colorcolumn')
-    set colorcolumn=80
-    else
-    au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-    endif
+" Set status line
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
 
-    " Set status line
-    set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [ASCII=\%03.3b]\ [HEX=\%02.2B]\ [POS=%04l,%04v][%p%%]\ [LEN=%L]
+" Turn on spell cheking and autoinsert mode when commitign
+if has('autocmd')
+if has('spell')
+au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
+endif
+au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
+endif
 
-    " Turn on spell cheking and autoinsert mode when commitign
-    if has('autocmd')
-    if has('spell')
-    au BufNewFile,BufRead COMMIT_EDITMSG setlocal spell
-    endif
-    au BufNewFile,BufRead COMMIT_EDITMSG call feedkeys('ggi', 't')
-    endif
-
-    cnoremap rt !ts b `pwd`/% <CR>
+cnoremap rt !ts b `pwd`/% <CR>

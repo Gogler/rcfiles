@@ -1,4 +1,10 @@
 # The following lines were added by compinstall
+#
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/"
+[ -n "$PS1" ] && \
+    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
+    eval "$("$BASE16_SHELL/profile_helper.sh")"
 
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' file-sort name
@@ -23,20 +29,5 @@ if [ -f ~/.alias_export ]; then
     . ~/.alias_export
 fi
 
-#--------------------------- Powerline Statuslien
 powerline-daemon -q
-#POWERLINE_BASH_CONTINUATION=1
-#POWERLINE_BASH_SELECT=1
-. $POWERLINE_ROOT/bindings/zsh/powerline.zsh
-alias cdpowerline="cd $POWERLINE_ROOT"
-
-#--------------------------- Base16 Shell
-BASE16_SHELL=~/.local/base16-shell/scripts/base16-monokai.sh
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-#===========CUSTOM EXPORTS
-#setxkbmap -option caps:swapescape
-export QTCHOOSER_RUNTOOL=qtconfig
-export QT_SELECT=5
-alias vim='nvim'
-bindkey -e
+. /usr/lib/python3.8/site-packages/powerline/bindings/zsh/powerline.zsh

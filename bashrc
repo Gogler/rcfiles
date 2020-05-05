@@ -1,10 +1,4 @@
-#
-# ~/.bashrc
-#
-
-# If not running interactively, don't do anything
 [[ $- != *i* ]] && return
-
 
 complete -cf sudo
 complete -cf man

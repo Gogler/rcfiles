@@ -13,14 +13,12 @@ alias orphans="pacman -Qtdq" # packages not required by any other
 alias expliciti="pacman -Qetq" # explicitly installed packages not required by any other
 alias mplayer='mplayer -vsync'
 alias pdf='zathura'
-alias rawvim="vim -u ~/.rawvim"
 
 # --------------------------- EXPORTS
 export PYTHONPATH=$PYTHONPATH:/usr/lib/python3.5/site-packages/:~/.local/lib/python3.5/site-packages:/usr/lib/python3.6/site-packages/:~/.local/lib/python3.6/site-packages
 export XDG_CONFIG_HOME=~/.config/
-export POWERLINE_ROOT=~/.local/lib/python3.6/site-packages/powerline
+export POWERLINE_ROOT=/home/adi/.local/bin/powerline
 export PATH=~/bin:$PATH
-export EDITOR=nvim
 
 # --------------------------- COLORED MAN PAGES
 man() {
@@ -39,15 +37,4 @@ topfifteen() {
 	history | awk '{if ($4 == "sudo") {print $5} else {print $4}}' | \
 		awk 'BEGIN {FS ="|"} {print $1}' \
 		| grep -v topfifteen | sort | uniq -c | sort -rn | head -15
-}
-
-# Aura sudo for build
-function a(){
-    AURA="$(aura "$@")"
-    if echo "$AURA" | grep -q '^aura >>= .*You have to use `.*sudo.*` for that.*$'
-    then
-        sudo aura "$@"
-    else
-        echo "$AURA"
-    fi
 }
